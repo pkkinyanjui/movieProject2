@@ -1,61 +1,32 @@
 package com.codepath.articlesearch
 
 import android.support.annotation.Keep
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-//@Keep
-//@Serializable
-//data class SearchNewsResponse(
-//    @SerialName("response")
-//    val response: BaseResponse?
-//)
 
-@Keep
-@Serializable
-data class SearchNewsResponse(
-    @SerialName("results")
-    val response: List<Article>?
-)
 
-@Keep
-@Serializable
 data class Article(
-    @SerialName("overview")
-    val abstract: String?,
+    @SerializedName("overview")
+    var description: String?,
 
-    @SerialName("release_date")
-    val byline: Byline?,
+    @SerializedName("release_date")
+    var releaseDate: String? =  null,
 
-    @SerialName("title")
-    val headline: HeadLine?,
+    @SerializedName("title")
+    var title: String? = null,
 
-    @SerialName("poster_path")
-    val multimedia: List<MultiMedia>?,
+    @SerializedName("poster_path")
+    var url: String? = null,
 
-) : java.io.Serializable
+    @SerializedName("vote_average")
+    var voteAVG: String? = null,
 
-@Keep
-@Serializable
-data class HeadLine(
-    @SerialName("title")
-    val main: String
-) : java.io.Serializable
+    @SerializedName("vote_count")
+    var voteCNT: String? = null,
 
-
-@Keep
-@Serializable
-data class Byline(
-    @SerialName("release_date")
-    val original: String? = null
-) : java.io.Serializable
-
-@Keep
-@Serializable
-data class MultiMedia(
-    @SerialName("poster_path")
-    val url: String?
-) : java.io.Serializable
+): java.io.Serializable
 
 
 

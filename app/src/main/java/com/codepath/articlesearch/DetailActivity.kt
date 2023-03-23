@@ -1,4 +1,4 @@
-package com.codepath.articlesearch
+ package com.codepath.articlesearch
 
 import android.os.Bundle
 import android.widget.ImageView
@@ -13,6 +13,8 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var titleTextView: TextView
     private lateinit var bylineTextView: TextView
     private lateinit var abstractTextView: TextView
+    private lateinit var voteTextView: TextView
+    private lateinit var countTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,18 +25,22 @@ class DetailActivity : AppCompatActivity() {
         titleTextView = findViewById(R.id.mediaTitle)
         bylineTextView = findViewById(R.id.mediaByline)
         abstractTextView = findViewById(R.id.mediaAbstract)
+        voteTextView = findViewById(R.id.voteAVG)
+        countTextView = findViewById(R.id.voteCNT)
 
         // TODO: Get the extra from the Intent
         val article = intent.getSerializableExtra(ARTICLE_EXTRA) as Article
 
         // TODO: Set the title, byline, and abstract information from the article
-        titleTextView.text = article.headline?.main
-        bylineTextView.text = article.byline?.original
-        abstractTextView.text = article.abstract
+        titleTextView.text = article.title
+        bylineTextView.text = article.releaseDate
+        abstractTextView.text = article.description
+        voteTextView.text = article.voteAVG
+        countTextView.text = article.voteCNT
 
         // TODO: Load the media image
         Glide.with(this)
-            .load("https://image.tmdb.org/t/p/w500" + article.multimedia)
+            .load("https://image.tmdb.org/t/p/w500" + article.url)
             .into(mediaImageView)
     }
 }

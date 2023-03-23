@@ -16,8 +16,11 @@ import kotlinx.serialization.json.Json
 import okhttp3.Headers
 import org.json.JSONException
 import android.support.annotation.Keep
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.json.JSONArray
 
 fun createJson() = Json {
     isLenient = true
@@ -73,25 +76,13 @@ class MainActivity : AppCompatActivity() {
                 Log.i(TAG, "Successfully fetched articles: $json")
                 try {
 
-                        // Do something with the returned json (contains article information)
-                        val parsedJson = createJson().decodeFromString(
-                            SearchNewsResponse.serializer(),
-                            json.jsonObject.toString()
-                        )
+                    val resultsJSON : JSONArray? = json?.jsonObject?.getJSONArray("results")
+                    val gson = Gson()
+                    val typeToken = object : TypeToken<List<Article>>() {}.type
+                    val models : List<Article> = gson.fromJson(resultsJSON.toString(), typeToken)
 
-                    Log.e("1Connection", parsedJson.toString())
-                    // TODO: Save the articles
-                    parsedJson.response?.let { list ->
-                        articles.addAll(list)
-                    }
-                    // TODO: Save the articles and reload the screen
-                    parsedJson.response?.let { list ->
-                        articles.addAll(list)
+                    articlesRecyclerView.adapter  = ArticleAdapter(this@MainActivity, models)
 
-                        // Reload the screen
-                        articleAdapter.notifyDataSetChanged()
-                        Log.e("1Connection", "successful")
-                    }
 
                 } catch (e: JSONException) {
                     Log.e(TAG, "Exception: $e")

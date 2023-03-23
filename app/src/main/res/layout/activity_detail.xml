@@ -7,10 +7,90 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
+    <TextView
+        android:id="@+id/released"
+        android:layout_width="157dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:text="Released"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mediaTitle" />
+
+    <TextView
+        android:id="@+id/voteHeader"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+
+        android:layout_marginBottom="10dp"
+        android:text="Average Score"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mediaByline" />
+
+    <TextView
+        android:id="@+id/countHeader"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginTop="20dp"
+        android:text="Vote Count"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.883"
+        app:layout_constraintStart_toEndOf="@+id/voteHeader"
+        app:layout_constraintTop_toBottomOf="@+id/mediaByline" />
+
+    <TextView
+        android:id="@+id/voteCNT"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+
+
+        android:text="Votes CNT"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#000000"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintStart_toEndOf="@+id/voteAVG"
+        app:layout_constraintTop_toBottomOf="@+id/countHeader" />
+
+    <TextView
+        android:id="@+id/voteAVG"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:text="Votes"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voteHeader" />
+
     <ImageView
         android:id="@+id/mediaImage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,6 +104,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
         android:text="Title"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
         android:textColor="#000000"
         android:textStyle="bold"
@@ -33,31 +114,34 @@
 
     <TextView
         android:id="@+id/mediaByline"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="152dp"
+        android:layout_height="23dp"
         android:layout_marginEnd="10dp"
         android:text="Byline"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="#000000"
-        android:textStyle="bold"
+
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mediaTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/released" />
 
     <TextView
         android:id="@+id/mediaAbstract"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="10dp"
         android:text="Abstract"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
         android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mediaByline" />
+        app:layout_constraintTop_toBottomOf="@+id/mediaByline"
+        app:layout_constraintVertical_bias="0.182" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
